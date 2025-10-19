@@ -85,9 +85,10 @@ const Home = () => {
               AI-Powered ESG Reporting
               <span className="highlight"> Without the Bureaucracy</span>
             </h1>
-            <p className="hero-description">
-              Viridata transforms complex ESG compliance into automated, transparent reporting. 
-              Our AI-driven platform predicts CO₂ credit values, automates CBAM reporting, 
+            {/* UPDATED: centered hero description */}
+            <p className="hero-description text-center mx-auto">
+              Viridata transforms complex ESG compliance into automated, transparent reporting.
+              Our AI-driven platform predicts CO₂ credit values, automates CBAM reporting,
               and prepares for blockchain-powered transparency.
             </p>
             <div className="hero-cta">
@@ -123,7 +124,7 @@ const Home = () => {
           <div className="section-header">
             <h2 className="section-title">The ESG Compliance Crisis</h2>
             <p className="section-subtitle">
-              Companies face mounting pressure from CBAM regulations, escalating penalties, 
+              Companies face mounting pressure from CBAM regulations, escalating penalties,
               and complex data requirements that strain resources and risk non-compliance.
             </p>
           </div>
@@ -133,7 +134,7 @@ const Home = () => {
                 <div className="problem-icon">€250</div>
                 <h3 className="problem-title">Escalating Penalties</h3>
                 <p className="problem-description">
-                  Up to €250 per tCO₂ in penalties for reporting failures. 
+                  Up to €250 per tCO₂ in penalties for reporting failures.
                   A 5,000 tCO₂ gap could cost €1.25M.
                 </p>
               </CardContent>
@@ -143,7 +144,7 @@ const Home = () => {
                 <div className="problem-icon">80%</div>
                 <h3 className="problem-title">Working Capital Strain</h3>
                 <p className="problem-description">
-                  Importers must pre-purchase 80% of estimated quarterly certificates, 
+                  Importers must pre-purchase 80% of estimated quarterly certificates,
                   severely impacting cash flow.
                 </p>
               </CardContent>
@@ -153,7 +154,7 @@ const Home = () => {
                 <div className="problem-icon">€45M</div>
                 <h3 className="problem-title">Heavy Importer Burden</h3>
                 <p className="problem-description">
-                  Heavy importers could face up to €45M in CBAM liability by 2034 
+                  Heavy importers could face up to €45M in CBAM liability by 2034
                   as coverage requirements increase.
                 </p>
               </CardContent>
@@ -163,7 +164,7 @@ const Home = () => {
                 <div className="problem-icon">100+</div>
                 <h3 className="problem-title">Data Complexity</h3>
                 <p className="problem-description">
-                  Managing sector-specific boundaries, supplier data collection, 
+                  Managing sector-specific boundaries, supplier data collection,
                   and verification creates operational bottlenecks.
                 </p>
               </CardContent>
@@ -179,8 +180,8 @@ const Home = () => {
             <div className="solution-left">
               <h2 className="section-title">Automated ESG Reporting, Powered by AI</h2>
               <p className="solution-intro">
-                Viridata transforms the ESG compliance nightmare into a streamlined, 
-                automated process. Our managed service eliminates bureaucracy while 
+                Viridata transforms the ESG compliance nightmare into a streamlined,
+                automated process. Our managed service eliminates bureaucracy while
                 ensuring audit-ready reports with zero human error.
               </p>
               <div className="solution-features">
@@ -189,7 +190,7 @@ const Home = () => {
                   <div>
                     <h3 className="feature-title">Zero-Friction Data Integration</h3>
                     <p className="feature-text">
-                      Read-only access to SAP, D365, Oracle, or simple CSV uploads. 
+                      Read-only access to SAP, D365, Oracle, or simple CSV uploads.
                       No complex integrations required.
                     </p>
                   </div>
@@ -199,7 +200,7 @@ const Home = () => {
                   <div>
                     <h3 className="feature-title">AI-Powered Validation</h3>
                     <p className="feature-text">
-                      Our calculation engine transforms ERP data into regulator-ready 
+                      Our calculation engine transforms ERP data into regulator-ready
                       outputs with confidence bands and gap-filling.
                     </p>
                   </div>
@@ -209,7 +210,7 @@ const Home = () => {
                   <div>
                     <h3 className="feature-title">One-Click Generation</h3>
                     <p className="feature-text">
-                      Generate XML/PDF reports for CBAM, CSRD, and GHG Scope 1/2/3 
+                      Generate XML/PDF reports for CBAM, CSRD, and GHG Scope 1/2/3
                       with a single click.
                     </p>
                   </div>
@@ -219,7 +220,7 @@ const Home = () => {
                   <div>
                     <h3 className="feature-title">SLA-Backed Guarantees</h3>
                     <p className="feature-text">
-                      We compensate for any filing or miscalculation errors. 
+                      We compensate for any filing or miscalculation errors.
                       Your compliance is our responsibility.
                     </p>
                   </div>
@@ -255,7 +256,7 @@ const Home = () => {
           <div className="section-header">
             <h2 className="section-title">Technology That Sets Us Apart</h2>
             <p className="section-subtitle">
-              Our platform combines cutting-edge AI for forecasting, automation for efficiency, 
+              Our platform combines cutting-edge AI for forecasting, automation for efficiency,
               and future blockchain integration for unmatched transparency.
             </p>
           </div>
@@ -267,8 +268,8 @@ const Home = () => {
                 </div>
                 <h3 className="feature-card-title">AI-Driven Forecasting</h3>
                 <p className="feature-card-description">
-                  Predict future CO₂ credit values with confidence bands. Our AI models 
-                  analyze historical data, market trends, and regulatory changes to provide 
+                  Predict future CO₂ credit values with confidence bands. Our AI models
+                  analyze historical data, market trends, and regulatory changes to provide
                   accurate forecasts for financial planning.
                 </p>
                 <ul className="feature-list">
@@ -285,8 +286,8 @@ const Home = () => {
                 </div>
                 <h3 className="feature-card-title">Complete Automation</h3>
                 <p className="feature-card-description">
-                  Eliminate manual processes with end-to-end automation. From data collection 
-                  to supplier outreach, we handle the entire operating cadence so you can 
+                  Eliminate manual processes with end-to-end automation. From data collection
+                  to supplier outreach, we handle the entire operating cadence so you can
                   focus on your core business.
                 </p>
                 <ul className="feature-list">
@@ -303,8 +304,8 @@ const Home = () => {
                 </div>
                 <h3 className="feature-card-title">Blockchain Transparency (Roadmap)</h3>
                 <p className="feature-card-description">
-                  We're integrating blockchain technology to ensure all ESG data and reports 
-                  are transparent yet anonymous, creating an immutable audit trail that 
+                  We're integrating blockchain technology to ensure all ESG data and reports
+                  are transparent yet anonymous, creating an immutable audit trail that
                   prevents manipulation or corruption.
                 </p>
                 <ul className="feature-list">
@@ -321,8 +322,8 @@ const Home = () => {
                 </div>
                 <h3 className="feature-card-title">Multi-Framework Support</h3>
                 <p className="feature-card-description">
-                  Beyond CBAM, our platform supports CSRD assurance packages and GHG 
-                  Scope 1/2/3 reporting. One platform for all your sustainability 
+                  Beyond CBAM, our platform supports CSRD assurance packages and GHG
+                  Scope 1/2/3 reporting. One platform for all your sustainability
                   compliance needs.
                 </p>
                 <ul className="feature-list">
@@ -342,7 +343,7 @@ const Home = () => {
           <div className="section-header">
             <h2 className="section-title">Meet Our Core Team</h2>
             <p className="section-subtitle">
-              A combination of domain expertise, technical excellence, and operational 
+              A combination of domain expertise, technical excellence, and operational
               precision driving Viridata's success.
             </p>
           </div>
@@ -405,8 +406,8 @@ const Home = () => {
           <div className="advisors-note">
             <TrendingUp className="note-icon" />
             <p>
-              We're building strategic advisory relationships with ex-customs commissioners, 
-              mid-tier audit partners, and OEM sustainability leaders to strengthen our 
+              We're building strategic advisory relationships with ex-customs commissioners,
+              mid-tier audit partners, and OEM sustainability leaders to strengthen our
               domain expertise.
             </p>
           </div>
@@ -420,8 +421,8 @@ const Home = () => {
             <div className="contact-left">
               <h2 className="section-title">Ready to Transform Your ESG Reporting?</h2>
               <p className="contact-intro">
-                Join forward-thinking companies that are automating their sustainability 
-                compliance with Viridata. Let's discuss how we can help you achieve 
+                Join forward-thinking companies that are automating their sustainability
+                compliance with Viridata. Let's discuss how we can help you achieve
                 audit-ready reporting with zero bureaucracy.
               </p>
               <div className="contact-benefits">
