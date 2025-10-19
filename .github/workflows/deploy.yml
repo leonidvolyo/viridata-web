@@ -50,7 +50,7 @@ jobs:
         env:
           CI: false
           NODE_ENV: production
-          PUBLIC_URL: /viridata-web
+          # PUBLIC_URL: /viridata-web
           
       - name: Setup Pages
         uses: actions/configure-pages@v4
