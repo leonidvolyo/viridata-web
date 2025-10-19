@@ -3,26 +3,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Backgrounds - Dark Theme Foundation */
-  --bg-primary: #000000;
-  --bg-secondary: #0a0a0a;
-  --bg-tertiary: #121212;
-  --bg-overlay: rgba(255, 255, 255, 0.05);
+  /* Backgrounds - Light Theme */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8F9FA;
+  --bg-tertiary: #F1F3F5;
+  --bg-overlay: rgba(0, 0, 0, 0.05);
   
   /* Text - High Contrast */
-  --text-primary: #FFFFFF;
-  --text-secondary: rgba(255, 255, 255, 0.85);
+  --text-primary: #1A1A1A;
+  --text-secondary: #4A4A4A;
   --text-muted: #6B7280;
   
   /* Borders */
-  --border-subtle: rgba(255, 255, 255, 0.1);
-  --border-medium: rgba(255, 255, 255, 0.2);
+  --border-subtle: #E5E7EB;
+  --border-medium: #D1D5DB;
   
-  /* Brand Colors - Green from Logo */
-  --brand-primary: #00FFD1;
-  --brand-hover: rgba(0, 255, 209, 0.1);
-  --brand-active: #6FD2C0;
+  /* Brand Colors - Natural Green from Logo */
+  --brand-primary: #6FD2C0;
+  --brand-hover: rgba(111, 210, 192, 0.1);
+  --brand-active: #5BC0AE;
   --brand-green: #6FD2C0;
+  --brand-dark-green: #3A5F56;
   
   /* Spacing */
   --spacing-xs: 8px;
