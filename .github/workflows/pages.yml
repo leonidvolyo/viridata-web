@@ -25,7 +25,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'   # keep 20; see Plan B below
+          node-version: '18'   # keep 20; see Plan B below
 
       - name: Install deps (tolerate peer ranges)
         working-directory: frontend
