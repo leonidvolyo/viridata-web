@@ -24,8 +24,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'     # no cache-dependency-path (works even without lockfile)
+          node-version: '20'   # ← no cache here
 
       - name: Install deps
         working-directory: frontend
@@ -36,22 +35,17 @@ jobs:
             npm install
           fi
 
-      # If your site will be under https://<user>.github.io/<repo>/ keep PUBLIC_URL.
-      # If you use a custom domain (viridata.eu) and add CNAME, you can drop PUBLIC_URL.
       - name: Build
         working-directory: frontend
         env:
           PUBLIC_URL: "/${{ github.event.repository.name }}"
-        run: |
-          # If your package.json uses CRACO, it should have "build": "craco build"
-          # otherwise standard CRA uses "react-scripts build"
-          npm run build
+        run: npm run build
 
       - name: Add 404.html for SPA fallback
         working-directory: frontend
         run: cp build/index.html build/404.html
 
-      # (Optional) If you’re switching to viridata.eu now, uncomment:
+      # If you’ll use viridata.eu now, uncomment:
       # - name: Add CNAME
       #   working-directory: frontend
       #   run: echo "viridata.eu" > build/CNAME
