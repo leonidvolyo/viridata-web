@@ -114,15 +114,6 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="hero-right">
-            <div className="hero-image-container">
-              <img 
-                src="https://customer-assets.emergentagent.com/job_3bbe4988-d7b8-4d45-bbcc-260df7b4fb90/artifacts/5ssjgcn3_LinkedIn%20cover%20-%201.jpg" 
-                alt="Making Sustainability Visible" 
-                className="hero-image"
-              />
-            </div>
-          </div>
         </div>
       </section>
 
