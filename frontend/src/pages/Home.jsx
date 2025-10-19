@@ -351,6 +351,24 @@ const Home = () => {
               <CardContent className="team-card-content">
                 <div className="team-photo-container">
                   <img
+                    src="https://customer-assets.emergentagent.com/job_esg-ai-platform/artifacts/g3szmmut_S.jpg"
+                    alt="Stanislav Knyazev"
+                    className="team-photo" />
+
+                </div>
+                <div className="team-info">
+                  <h3 className="team-name">Stanislav Knyazev</h3>
+                  <div className="team-role">COO</div>
+                  <p className="team-description">
+                    Operations and project management expert. Ensuring process excellence and quality assurance across all client engagements.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="team-card">
+              <CardContent className="team-card-content">
+                <div className="team-photo-container">
+                  <img
                     src="https://customer-assets.emergentagent.com/job_esg-ai-platform/artifacts/l7bsn7qu_M.jpg"
                     alt="Maksim Kruk"
                     className="team-photo" />
@@ -359,9 +377,9 @@ const Home = () => {
                 <div className="team-info">
                   <h3 className="team-name">Maksim Kruk</h3>
                   <div className="team-role">CEO</div>
-                  <p className="team-description">
-                    Expertise in CBAM and sustainability. Deep understanding of EU importer 
-                    pain points and regulatory landscape.
+                  <p className="team-description">Expertise in CBAM and sustainability. Deep understanding of EU importer pain points and regulatory landscape.
+
+
                   </p>
                 </div>
               </CardContent>
@@ -378,28 +396,7 @@ const Home = () => {
                 <div className="team-info">
                   <h3 className="team-name">Leonid Samoilov</h3>
                   <div className="team-role">CTO</div>
-                  <p className="team-description">Full-stack and cloud architecture specialist. Building stable, scalable and secure infrastructure for enterprise ESG solutions.
-
-
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-            <Card className="team-card">
-              <CardContent className="team-card-content">
-                <div className="team-photo-container">
-                  <img
-                    src="https://customer-assets.emergentagent.com/job_esg-ai-platform/artifacts/g3szmmut_S.jpg"
-                    alt="Stanislav Knyazev"
-                    className="team-photo" />
-
-                </div>
-                <div className="team-info">
-                  <h3 className="team-name">Stanislav Knyazev</h3>
-                  <div className="team-role">COO</div>
-                  <p className="team-description">
-                    Operations and project management expert. Ensuring process excellence 
-                    and quality assurance across all client engagements.
+                  <p className="team-description">Full-stack and cloud architecture specialist. Building stable, scalable and secure infrastructure for enterprise ESG solutions
                   </p>
                 </div>
               </CardContent>
