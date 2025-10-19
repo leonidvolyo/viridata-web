@@ -370,7 +370,7 @@ const Home = () => {
               <CardContent className="team-card-content">
                 <div className="team-photo-container">
                   <img
-                    src="https://customer-assets.emergentagent.com/job_esg-ai-platform/artifacts/g3szmmut_S.jpg"
+                    src="https://customer-assets.emergentagent.com/job_esg-ai-platform/artifacts/xsf9whjw_L.jpg"
                     alt="Leonid Samoilov"
                     className="team-photo" />
 
@@ -389,7 +389,7 @@ const Home = () => {
               <CardContent className="team-card-content">
                 <div className="team-photo-container">
                   <img
-                    src="https://customer-assets.emergentagent.com/job_esg-ai-platform/artifacts/xsf9whjw_L.jpg"
+                    src="https://customer-assets.emergentagent.com/job_esg-ai-platform/artifacts/g3szmmut_S.jpg"
                     alt="Stanislav Knyazev"
                     className="team-photo" />
 
