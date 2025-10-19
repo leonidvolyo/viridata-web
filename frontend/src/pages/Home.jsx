@@ -44,7 +44,7 @@ const Home = () => {
     e.preventDefault();
     toast({
       title: "Message Sent!",
-      description: "Thank you for your interest. We'll get back to you soon.",
+      description: "Thank you for your interest. We'll get back to you soon."
     });
     setFormData({ name: '', email: '', company: '', message: '' });
   };
@@ -59,11 +59,11 @@ const Home = () => {
       <header className="dark-header">
         <div className="header-content">
           <div className="logo-container" onClick={() => scrollToSection('hero')}>
-            <img 
-              src="https://customer-assets.emergentagent.com/job_3bbe4988-d7b8-4d45-bbcc-260df7b4fb90/artifacts/7ywytmq2_Logo.png" 
-              alt="Viridata Logo" 
-              className="dark-logo"
-            />
+            <img
+              src="https://customer-assets.emergentagent.com/job_3bbe4988-d7b8-4d45-bbcc-260df7b4fb90/artifacts/7ywytmq2_Logo.png"
+              alt="Viridata Logo"
+              className="dark-logo" />
+
             <span className="company-name">Viridata</span>
           </div>
           <nav className="dark-nav">
@@ -350,11 +350,11 @@ const Home = () => {
             <Card className="team-card">
               <CardContent className="team-card-content">
                 <div className="team-photo-container">
-                  <img 
-                    src="https://customer-assets.emergentagent.com/job_esg-ai-platform/artifacts/l7bsn7qu_M.jpg" 
-                    alt="Maksim Kruk" 
-                    className="team-photo"
-                  />
+                  <img
+                    src="https://customer-assets.emergentagent.com/job_esg-ai-platform/artifacts/l7bsn7qu_M.jpg"
+                    alt="Maksim Kruk"
+                    className="team-photo" />
+
                 </div>
                 <div className="team-info">
                   <h3 className="team-name">Maksim Kruk</h3>
@@ -369,18 +369,18 @@ const Home = () => {
             <Card className="team-card">
               <CardContent className="team-card-content">
                 <div className="team-photo-container">
-                  <img 
-                    src="https://customer-assets.emergentagent.com/job_esg-ai-platform/artifacts/g3szmmut_S.jpg" 
-                    alt="Leonid Samoilov" 
-                    className="team-photo"
-                  />
+                  <img
+                    src="https://customer-assets.emergentagent.com/job_esg-ai-platform/artifacts/g3szmmut_S.jpg"
+                    alt="Leonid Samoilov"
+                    className="team-photo" />
+
                 </div>
                 <div className="team-info">
                   <h3 className="team-name">Leonid Samoilov</h3>
                   <div className="team-role">CTO</div>
-                  <p className="team-description">
-                    Backend and cloud architecture specialist. Building scalable, 
-                    secure infrastructure for enterprise ESG solutions.
+                  <p className="team-description">Full-stack and cloud architecture specialist. Building stable, scalable and secure infrastructure for enterprise ESG solutions.
+
+
                   </p>
                 </div>
               </CardContent>
@@ -388,11 +388,11 @@ const Home = () => {
             <Card className="team-card">
               <CardContent className="team-card-content">
                 <div className="team-photo-container">
-                  <img 
-                    src="https://customer-assets.emergentagent.com/job_esg-ai-platform/artifacts/xsf9whjw_L.jpg" 
-                    alt="Stanislav Knyazev" 
-                    className="team-photo"
-                  />
+                  <img
+                    src="https://customer-assets.emergentagent.com/job_esg-ai-platform/artifacts/xsf9whjw_L.jpg"
+                    alt="Stanislav Knyazev"
+                    className="team-photo" />
+
                 </div>
                 <div className="team-info">
                   <h3 className="team-name">Stanislav Knyazev</h3>
@@ -470,8 +470,8 @@ const Home = () => {
                         onChange={handleChange}
                         placeholder="Your name"
                         required
-                        className="form-input"
-                      />
+                        className="form-input" />
+
                     </div>
                     <div className="form-group">
                       <label htmlFor="email" className="form-label">Email *</label>
@@ -483,8 +483,8 @@ const Home = () => {
                         onChange={handleChange}
                         placeholder="your@email.com"
                         required
-                        className="form-input"
-                      />
+                        className="form-input" />
+
                     </div>
                     <div className="form-group">
                       <label htmlFor="company" className="form-label">Company *</label>
@@ -495,8 +495,8 @@ const Home = () => {
                         onChange={handleChange}
                         placeholder="Company name"
                         required
-                        className="form-input"
-                      />
+                        className="form-input" />
+
                     </div>
                     <div className="form-group">
                       <label htmlFor="message" className="form-label">Message *</label>
@@ -508,8 +508,8 @@ const Home = () => {
                         placeholder="Tell us about your ESG reporting needs..."
                         required
                         className="form-textarea"
-                        rows={4}
-                      />
+                        rows={4} />
+
                     </div>
                     <Button type="submit" className="btn-primary submit-btn">
                       Send Message
@@ -527,11 +527,11 @@ const Home = () => {
         <div className="footer-content">
           <div className="footer-left">
             <div className="footer-logo">
-              <img 
-                src="https://customer-assets.emergentagent.com/job_3bbe4988-d7b8-4d45-bbcc-260df7b4fb90/artifacts/7ywytmq2_Logo.png" 
-                alt="Viridata Logo" 
-                className="footer-logo-img"
-              />
+              <img
+                src="https://customer-assets.emergentagent.com/job_3bbe4988-d7b8-4d45-bbcc-260df7b4fb90/artifacts/7ywytmq2_Logo.png"
+                alt="Viridata Logo"
+                className="footer-logo-img" />
+
               <span className="footer-company">Viridata</span>
             </div>
             <p className="footer-tagline">Making Sustainability Visible</p>
@@ -543,8 +543,8 @@ const Home = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>);
+
 };
 
 export default Home;
