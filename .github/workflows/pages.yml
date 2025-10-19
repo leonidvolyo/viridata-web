@@ -1,3 +1,4 @@
+# .github/workflows/pages.yml
 name: Deploy React frontend to GitHub Pages
 
 on:
@@ -24,9 +25,9 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'   # no cache to keep it simple
+          node-version: '20'   # keep 20; see Plan B below
 
-      - name: Install deps (allow legacy peer ranges)
+      - name: Install deps (tolerate peer ranges)
         working-directory: frontend
         run: |
           if [ -f package-lock.json ]; then
@@ -34,6 +35,11 @@ jobs:
           else
             npm install --legacy-peer-deps
           fi
+
+      # 👉 Ajv compatibility for CRA/webpack toolchain
+      - name: Pin Ajv toolchain versions
+        working-directory: frontend
+        run: npm install -D ajv@^6.12.6 ajv-keywords@^3.5.2 --legacy-peer-deps
 
       - name: Build
         working-directory: frontend
@@ -45,7 +51,7 @@ jobs:
         working-directory: frontend
         run: cp build/index.html build/404.html
 
-      # If pointing to viridata.eu now, uncomment:
+      # If you’re using viridata.eu now, uncomment:
       # - name: Add CNAME
       #   working-directory: frontend
       #   run: echo "viridata.eu" > build/CNAME
