@@ -25,13 +25,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "18"
-          cache: "yarn"
-          cache-dependency-path: frontend/yarn.lock
+          
+      - name: Setup Yarn
+        run: npm install -g yarn
           
       - name: Install dependencies
         run: |
           cd frontend
           yarn install --frozen-lockfile
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
           
       - name: Build
         run: |
