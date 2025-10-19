@@ -282,20 +282,22 @@ body {
 
 .hero-right {
   position: relative;
+  display: none;
 }
 
 .hero-image-container {
   position: relative;
-  border-radius: 0px;
+  border-radius: 12px;
   overflow: hidden;
   border: 1px solid var(--border-subtle);
   background: var(--bg-secondary);
+  display: none;
 }
 
 .hero-image {
   width: 100%;
   height: auto;
-  display: block;
+  display: none;
   transition: transform 0.5s ease;
 }
 
