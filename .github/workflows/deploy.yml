@@ -42,7 +42,7 @@ jobs:
           yarn build
         env:
           CI: false
-          PUBLIC_URL: /viridata-web
+          NODE_ENV: production
           
       - name: Setup Pages
         uses: actions/configure-pages@v4
