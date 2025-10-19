@@ -24,15 +24,15 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'   # ← no cache here
+          node-version: '20'   # no cache to keep it simple
 
-      - name: Install deps
+      - name: Install deps (allow legacy peer ranges)
         working-directory: frontend
         run: |
           if [ -f package-lock.json ]; then
-            npm ci
+            npm ci --legacy-peer-deps
           else
-            npm install
+            npm install --legacy-peer-deps
           fi
 
       - name: Build
@@ -41,16 +41,16 @@ jobs:
           PUBLIC_URL: "/${{ github.event.repository.name }}"
         run: npm run build
 
-      - name: Add 404.html for SPA fallback
+      - name: SPA fallback
         working-directory: frontend
         run: cp build/index.html build/404.html
 
-      # If you’ll use viridata.eu now, uncomment:
+      # If pointing to viridata.eu now, uncomment:
       # - name: Add CNAME
       #   working-directory: frontend
       #   run: echo "viridata.eu" > build/CNAME
 
-      - name: Upload artifact (frontend/build)
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: frontend/build
