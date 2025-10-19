@@ -6,7 +6,7 @@ import { Toaster } from './components/ui/sonner';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename="/viridata-web">
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
