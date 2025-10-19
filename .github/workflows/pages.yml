@@ -1,4 +1,3 @@
-# .github/workflows/pages.yml
 name: Deploy React frontend to GitHub Pages
 
 on:
@@ -22,12 +21,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node (v20)
         uses: actions/setup-node@v4
         with:
-          node-version: '18'   # keep 20; see Plan B below
+          node-version: '20'
 
-      - name: Install deps (tolerate peer ranges)
+      # Install app deps (tolerate peer ranges due to React 19 + older libs)
+      - name: Install deps
         working-directory: frontend
         run: |
           if [ -f package-lock.json ]; then
@@ -36,22 +36,24 @@ jobs:
             npm install --legacy-peer-deps
           fi
 
-      # 👉 Ajv compatibility for CRA/webpack toolchain
-      - name: Pin Ajv toolchain versions
+      # Ajv toolchain pin for CRA/CRACO/webpack (fixes "ajv/dist/compile/codegen")
+      - name: Pin Ajv toolchain
         working-directory: frontend
         run: npm install -D ajv@^6.12.6 ajv-keywords@^3.5.2 --legacy-peer-deps
 
       - name: Build
         working-directory: frontend
         env:
+          # Keep this if using https://<user>.github.io/<repo>/
+          # Remove it if deploying to a custom domain (with CNAME).
           PUBLIC_URL: "/${{ github.event.repository.name }}"
         run: npm run build
 
-      - name: SPA fallback
+      - name: SPA fallback (404.html)
         working-directory: frontend
         run: cp build/index.html build/404.html
 
-      # If you’re using viridata.eu now, uncomment:
+      # If switching to viridata.eu now, uncomment:
       # - name: Add CNAME
       #   working-directory: frontend
       #   run: echo "viridata.eu" > build/CNAME
