@@ -480,7 +480,7 @@ body {
 .feature-card {
   background: var(--bg-secondary) !important;
   border: 1px solid var(--border-subtle) !important;
-  border-radius: 0px !important;
+  border-radius: 12px !important;
   transition: all 0.3s ease;
   height: 100%;
 }
@@ -488,7 +488,7 @@ body {
 .feature-card:hover {
   border-color: var(--brand-primary) !important;
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 255, 209, 0.1);
+  box-shadow: 0 12px 40px rgba(111, 210, 192, 0.15);
 }
 
 .feature-card-content {
