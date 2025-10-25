@@ -5,9 +5,11 @@ import { Textarea } from '../components/ui/textarea';
 import { Card, CardContent } from '../components/ui/card';
 import { CheckCircle2, TrendingUp, Shield, Cpu, Database, Zap, Mail, Linkedin, ExternalLink } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
+import axios from 'axios';
 
 const Home = () => {
   const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const [rotatingWord, setRotatingWord] = useState(0);
   const { toast } = useToast();
@@ -65,13 +67,35 @@ const Home = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your interest. We'll get back to you soon."
-    });
-    setFormData({ name: '', email: '', company: '', message: '' });
+    setIsSubmitting(true);
+    
+    try {
+      // Submit directly to Formspree
+      const response = await axios.post('https://formspree.io/f/mgvpwdge', formData, {
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.status === 200) {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for your interest. We'll get back to you soon.",
+        });
+        setFormData({ name: '', email: '', company: '', message: '' });
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again or email us directly at info@viridata.eu",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -475,7 +499,7 @@ const Home = () => {
               <div className="contact-info">
                 <div className="info-item">
                   <Mail className="info-icon" />
-                  <span>info@greentrace.tech</span>
+                  <span>info@viridata.eu</span>
                 </div>
                 <div className="info-item">
                   <Linkedin className="info-icon" />
@@ -538,8 +562,8 @@ const Home = () => {
                         rows={4} />
 
                     </div>
-                    <Button type="submit" className="btn-primary submit-btn">
-                      Send Message
+                    <Button type="submit" className="btn-primary submit-btn" disabled={isSubmitting}>
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
                     </Button>
                   </form>
                 </CardContent>
