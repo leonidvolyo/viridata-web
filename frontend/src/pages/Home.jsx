@@ -9,7 +9,22 @@ import { useToast } from '../hooks/use-toast';
 const Home = () => {
   const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
   const [activeSection, setActiveSection] = useState('hero');
+  const [rotatingWord, setRotatingWord] = useState(0);
   const { toast } = useToast();
+
+  // Rotating words for the hero section
+  const rotatingWords = [
+    'bureaucracy',
+    'overthinking',
+    'spreadsheets',
+    'delays',
+    'complexity',
+    'guesswork',
+    'stress',
+    'manual work',
+    'confusion',
+    'errors'
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
