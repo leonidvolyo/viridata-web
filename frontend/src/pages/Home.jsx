@@ -75,12 +75,17 @@ const Home = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await axios.post(`${API}/contact`, formData);
+      // Submit directly to Formspree
+      const response = await axios.post('https://formspree.io/f/mgvpwdge', formData, {
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
       
-      if (response.data.success) {
+      if (response.status === 200) {
         toast({
           title: "Message Sent!",
-          description: response.data.message || "Thank you for your interest. We'll get back to you soon.",
+          description: "Thank you for your interest. We'll get back to you soon.",
         });
         setFormData({ name: '', email: '', company: '', message: '' });
       }
@@ -88,7 +93,7 @@ const Home = () => {
       console.error('Error submitting form:', error);
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again or email us directly at info@greentrace.tech",
+        description: "Failed to send message. Please try again or email us directly at info@viridata.eu",
         variant: "destructive"
       });
     } finally {
