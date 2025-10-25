@@ -107,9 +107,7 @@ const Home = () => {
           <div className="hero-left">
             <div className="tagline">Making Sustainability Visible</div>
             <h1 className="hero-title">
-              E2E Automated ESG Reporting
-              <br />
-              <span className="without-text">without </span>
+              Get ESG compliance done without{' '}
               <span className="rotating-word-container">
                 <span className="rotating-word" key={rotatingWord}>
                   {rotatingWords[rotatingWord]}
