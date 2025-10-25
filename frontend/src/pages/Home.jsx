@@ -106,8 +106,14 @@ const Home = () => {
           <div className="hero-left">
             <div className="tagline">Making Sustainability Visible</div>
             <h1 className="hero-title">
-              AI-Powered ESG Reporting
-              <span className="highlight"> Without the Bureaucracy</span>
+              E2E Automated ESG Reporting
+              <br />
+              <span className="without-text">without </span>
+              <span className="rotating-word-container">
+                <span className="rotating-word" key={rotatingWord}>
+                  {rotatingWords[rotatingWord]}
+                </span>
+              </span>
             </h1>
             <p className="hero-description">
               Viridata transforms complex ESG compliance into automated, transparent reporting. 
