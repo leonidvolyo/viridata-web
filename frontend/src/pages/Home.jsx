@@ -17,13 +17,14 @@ const Home = () => {
     'bureaucracy',
     'overthinking',
     'spreadsheets',
-    'delays',
+    'wasted time',
     'complexity',
     'guesswork',
-    'stress',
+    'pressure',
     'manual work',
-    'confusion',
-    'errors'
+    'confusions',
+    'inaccuracies',
+    'endless threads'
   ];
 
   useEffect(() => {
