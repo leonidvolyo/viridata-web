@@ -9,7 +9,22 @@ import { useToast } from '../hooks/use-toast';
 const Home = () => {
   const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
   const [activeSection, setActiveSection] = useState('hero');
+  const [rotatingWord, setRotatingWord] = useState(0);
   const { toast } = useToast();
+
+  // Rotating words for the hero section
+  const rotatingWords = [
+    'bureaucracy',
+    'overthinking',
+    'spreadsheets',
+    'delays',
+    'complexity',
+    'guesswork',
+    'stress',
+    'manual work',
+    'confusion',
+    'errors'
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +47,15 @@ const Home = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Rotating word animation
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRotatingWord((prev) => (prev + 1) % rotatingWords.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [rotatingWords.length]);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -82,8 +106,14 @@ const Home = () => {
           <div className="hero-left">
             <div className="tagline">Making Sustainability Visible</div>
             <h1 className="hero-title">
-              AI-Powered ESG Reporting
-              <span className="highlight"> Without the Bureaucracy</span>
+              E2E Automated ESG Reporting
+              <br />
+              <span className="without-text">without </span>
+              <span className="rotating-word-container">
+                <span className="rotating-word" key={rotatingWord}>
+                  {rotatingWords[rotatingWord]}
+                </span>
+              </span>
             </h1>
             {/* UPDATED: centered hero description */}
             <p className="hero-description text-center mx-auto">
@@ -446,7 +476,7 @@ const Home = () => {
               <div className="contact-info">
                 <div className="info-item">
                   <Mail className="info-icon" />
-                  <span>contact@viridata.com</span>
+                  <span>info@greentrace.tech</span>
                 </div>
                 <div className="info-item">
                   <Linkedin className="info-icon" />
