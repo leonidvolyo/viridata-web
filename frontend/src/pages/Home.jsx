@@ -48,6 +48,15 @@ const Home = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Rotating word animation
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRotatingWord((prev) => (prev + 1) % rotatingWords.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [rotatingWords.length]);
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
