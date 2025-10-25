@@ -55,7 +55,7 @@ const Home = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setRotatingWord((prev) => (prev + 1) % rotatingWords.length);
-    }, 5000);
+    }, 2500);
 
     return () => clearInterval(interval);
   }, [rotatingWords.length]);
