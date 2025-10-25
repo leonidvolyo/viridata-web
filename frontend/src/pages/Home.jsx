@@ -7,9 +7,6 @@ import { CheckCircle2, TrendingUp, Shield, Cpu, Database, Zap, Mail, Linkedin, E
 import { useToast } from '../hooks/use-toast';
 import axios from 'axios';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
-
 const Home = () => {
   const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
