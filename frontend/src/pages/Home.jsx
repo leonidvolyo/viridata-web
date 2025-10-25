@@ -562,8 +562,8 @@ const Home = () => {
                         rows={4} />
 
                     </div>
-                    <Button type="submit" className="btn-primary submit-btn">
-                      Send Message
+                    <Button type="submit" className="btn-primary submit-btn" disabled={isSubmitting}>
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
                     </Button>
                   </form>
                 </CardContent>
