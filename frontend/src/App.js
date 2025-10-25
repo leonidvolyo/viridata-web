@@ -4,14 +4,14 @@ import Home from './pages/Home';
 import { Toaster } from './components/ui/sonner';
 
 function App() {
-  // Use basename only in production (GitHub Pages)
-  const basename = process.env.NODE_ENV === 'production' ? '/viridata-web' : '';
-  
   return (
     <div className="App">
-      <BrowserRouter basename={basename}>
+      {/* No basename when serving at https://viridata.eu/ */}
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          {/* optional: catch-all redirect if you add more routes later */}
+          {/* <Route path="*" element={<Home />} /> */}
         </Routes>
       </BrowserRouter>
       <Toaster />
