@@ -504,7 +504,7 @@ const Home = () => {
               <div className="contact-info">
                 <div className="info-item">
                   <Mail className="info-icon" />
-                  <span>info@greentrace.tech</span>
+                  <span>info@viridata.eu</span>
                 </div>
                 <div className="info-item">
                   <Linkedin className="info-icon" />
