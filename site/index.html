@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viridata — ESG compliance done</title>
+<meta name="description" content="ESG compliance done without spreadsheets, manual work, or wasted time. Autonomous AI agents for CBAM, CSRD, and EU EED.">
+<meta property="og:title" content="Viridata">
+<meta property="og:description" content="ESG compliance done. Autonomous AI agents for CBAM, CSRD, and EU EED.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://viridata.eu">
+<link rel="icon" type="image/png" href="logo_viridata.png">
+
+<style>
+  :root {
+    --ink: #0A0A0A;
+    --white: #FFFFFF;
+    --green: #1F5C2A;
+    --gray-500: #737373;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+    background: var(--white);
+    color: var(--ink);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding: 48px;
+  }
+
+  header { display: flex; align-items: center; gap: 12px; }
+  header img { width: 32px; height: 32px; display: block; }
+  header .wordmark {
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 0;
+  }
+
+  .line {
+    font-weight: 700;
+    font-size: clamp(28px, 5.5vw, 80px);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    text-align: center;
+    max-width: 1400px;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 0.08em;
+    height: 0.95em;
+    background: var(--ink);
+    margin-left: 0.02em;
+    vertical-align: -0.1em;
+    animation: blink 1s steps(2, start) infinite;
+  }
+  .cursor.hidden { display: none; }
+  @keyframes blink { to { visibility: hidden; } }
+
+  /* Clipping container. Height equals one line; width is animated in JS.
+     Initial width 1ch so it's visible before JS runs / measures. */
+  .swiper {
+    display: inline-block;
+    position: relative;
+    vertical-align: baseline;
+    color: var(--green);
+    line-height: 1.1;
+    height: 1.1em;
+    overflow: hidden;
+    transition: width 360ms cubic-bezier(0.7, 0, 0.3, 1);
+    width: 1ch;
+    text-align: left;
+    /* Ensure descenders aren't clipped */
+    padding-bottom: 0.1em;
+    margin-bottom: -0.1em;
+  }
+
+  .swiper-word {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    transform: translateY(0);
+    transition: transform 550ms cubic-bezier(0.7, 0, 0.3, 1);
+    will-change: transform;
+  }
+
+  /* Black strikethrough drawing left-to-right */
+  .swiper-word::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 0.08em;
+    width: 0;
+    background: var(--ink);
+    transform: translateY(-50%);
+    transition: width 280ms cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .swiper-word.struck::after { width: 100%; }
+
+  .swiper-word.swiping-up { transform: translateY(-115%); }
+
+  .swiper-word.entering {
+    transform: translateY(115%);
+    transition: none;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: var(--gray-500);
+    letter-spacing: 0.01em;
+  }
+  footer .right { display: flex; gap: 24px; }
+  footer a {
+    color: var(--gray-500);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+  footer a:hover { color: var(--ink); }
+
+  @media (max-width: 640px) {
+    body { padding: 24px; }
+    header img { width: 28px; height: 28px; }
+    header .wordmark { font-size: 16px; }
+    .line { font-size: clamp(26px, 8vw, 40px); line-height: 1.15; }
+    footer { flex-direction: column; gap: 8px; align-items: flex-start; font-size: 12px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cursor { animation: none; }
+    .swiper, .swiper-word, .swiper-word::after { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="logo_viridata.png" alt="Viridata">
+  <span class="wordmark">Viridata</span>
+</header>
+
+<main>
+  <h1 class="line" aria-label="Get ESG compliance done without spreadsheets">
+    <span id="static"><span class="cursor" id="introCursor"></span></span><span class="swiper" id="swiper" aria-live="polite"></span>
+  </h1>
+</main>
+
+<footer>
+  <div class="left">Viridata · Prague, CZ</div>
+  <div class="right">
+    <a href="mailto:info@viridata.eu">info@viridata.eu</a>
+    <a href="https://viridata.eu">viridata.eu</a>
+  </div>
+</footer>
+
+<script>
+  const INTRO_TEXT = 'Get ESG compliance done without ';
+  const WORDS = ['spreadsheets', 'manual work', 'wasted time', 'overthinking', 'complexity'];
+
+  const TYPE_SPEED = 55;
+  const HOLD_AFTER_TYPE = 900;
+  const STRIKE_DURATION = 280;
+  const HOLD_AFTER_STRIKE = 220;
+  const SWIPE_DURATION = 550;
+
+  const staticEl = document.getElementById('static');
+  const introCursor = document.getElementById('introCursor');
+  const swiper = document.getElementById('swiper');
+
+  const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+
+  // Hidden probe for measuring text width with the same font as .swiper
+  const probe = document.createElement('span');
+  probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;top:-9999px;left:-9999px;';
+  swiper.appendChild(probe);
+
+  function measureWord(text) {
+    probe.textContent = text;
+    return probe.getBoundingClientRect().width;
+  }
+
+  function makeWordEl(text, entering = false) {
+    const el = document.createElement('span');
+    el.className = 'swiper-word' + (entering ? ' entering' : '');
+    el.textContent = text;
+    return el;
+  }
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    staticEl.textContent = INTRO_TEXT;
+    swiper.style.width = measureWord(WORDS[0]) + 'px';
+    swiper.appendChild(makeWordEl(WORDS[0]));
+  } else {
+    run();
+  }
+
+  async function run() {
+    // Phase 1: typewriter prefix
+    for (let i = 0; i < INTRO_TEXT.length; i++) {
+      staticEl.insertBefore(document.createTextNode(INTRO_TEXT[i]), introCursor);
+      await sleep(TYPE_SPEED);
+    }
+
+    // Phase 2: type first word, growing the swiper width as we go
+    const firstWord = WORDS[0];
+    let current = makeWordEl('');
+    swiper.appendChild(current);
+
+    for (let i = 1; i <= firstWord.length; i++) {
+      const partial = firstWord.slice(0, i);
+      current.textContent = partial;
+      // Resize swiper to fit the partial word (with no transition during typing)
+      swiper.style.transition = 'none';
+      swiper.style.width = measureWord(partial) + 'px';
+      // Force reflow so the next char's width change isn't batched oddly
+      void swiper.offsetWidth;
+      await sleep(TYPE_SPEED);
+    }
+
+    // Restore transition for subsequent width changes
+    swiper.style.transition = '';
+
+    introCursor.classList.add('hidden');
+
+    // Phase 3: rotation loop
+    let idx = 0;
+    while (true) {
+      await sleep(HOLD_AFTER_TYPE);
+
+      current.classList.add('struck');
+      await sleep(STRIKE_DURATION + HOLD_AFTER_STRIKE);
+
+      idx = (idx + 1) % WORDS.length;
+      const nextText = WORDS[idx];
+      const nextWidth = measureWord(nextText);
+
+      swiper.style.width = nextWidth + 'px';
+
+      const next = makeWordEl(nextText, true);
+      swiper.appendChild(next);
+      void next.offsetWidth;
+
+      current.classList.add('swiping-up');
+      next.classList.remove('entering');
+
+      await sleep(SWIPE_DURATION);
+
+      current.remove();
+      current = next;
+    }
+  }
+</script>
+
+</body>
+</html>
